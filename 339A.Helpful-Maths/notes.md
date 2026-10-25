@@ -54,3 +54,26 @@ This new approach takes:
 This is exactly what I want you to learn from Codeforces: Identifying constraints that llow to simplify a problem
 
 # Current Solution Breakdown (With frequency mapping)
+Already achieved optimal time complexity: `O(n)` However there is a difference between having the best Big-O complexity and having the most efficient implementation.
+
+The code is optimal asymptotically, but we can make it simpler, faster in practice, and more memory-efficient.
+
+## Here Sorting is O(1) Why?
+Because the input only contains possible numbers 1,2,3. Which means the vector contains at most 3 entreis. Sorting three elements is constant work, redardless of the input len.
+
+My solution uses O(n) total space because of the input and output strings The map and vector each require only O(1) space.
+
+## How to optimize it EVEN MORE! 
+The biggest opportunity is eliminating the `unordered_map`, `vector`, and `sort`.
+
+Instead use a fixed-size array. (Check code)
+
+|Char | Code | Subtract '0' |
+| --- | --- | --- |
+|'0'  | 48   | 0 |
+| '1' | 49 | 1|
+|'2'|50|2|
+|'3'|51|3|
+
+SO `freq['3' - '0']++;` is equivalent to : `freq[3]++;` which is very common in competitive programming.
+
